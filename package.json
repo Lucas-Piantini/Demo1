@@ -10,7 +10,11 @@
     "prepare": "husky install",
     "lint": " npx prettier --write ."
   },
-  "husky": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && git add -A ."
+    }
+  },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
