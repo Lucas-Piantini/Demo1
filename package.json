@@ -7,8 +7,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": " npx prettier --write ."
   },
+  "husky": {},
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
