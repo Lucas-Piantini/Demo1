@@ -5,13 +5,13 @@ import { styles } from "./style";
 import axios from "axios";
 
 export const Grid = () => {
-  const [data, setData] = useState([]);
+  const [datos, setDatos] = useState();
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/todos")
+      .get("https://jsonplaceholder.typicode.com/photos?_start=0&_limit=6")
       .then((response) => {
-        setData(response.data);
+        setDatos(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -21,14 +21,14 @@ export const Grid = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
-        {data.length > 0 ? (
-          data.map((item) =>
+        {datos ? (
+          datos.map((item) =>
             item.id ? (
               <Card
                 key={item.id}
                 id={item.id}
                 title={item.title}
-                completed={item.completed}
+                thumbnailUrl={item.thumbnailUrl}
               />
             ) : null
           )

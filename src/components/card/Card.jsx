@@ -1,13 +1,14 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import PropTypes from "prop-types";
 import { styles } from "./style";
 
-export const Card = ({ id, title, completed }) => {
+export const Card = ({ title, thumbnailUrl }) => {
   return (
     <View style={styles.container}>
-      <Text>{id}</Text>
-      <Text>{title}</Text>
-      <Text>{`${completed}`}</Text>
+      <View>
+        <Image style={styles.image} source={{ uri: thumbnailUrl }} />
+      </View>
+      <Text style={styles.text}>{title}</Text>
     </View>
   );
 };
@@ -15,5 +16,5 @@ export const Card = ({ id, title, completed }) => {
 Card.propTypes = {
   id: PropTypes.node.isRequired,
   title: PropTypes.node.isRequired,
-  completed: PropTypes.bool.isRequired,
+  thumbnailUrl: PropTypes.node.isRequired,
 };
